@@ -1,0 +1,121 @@
+{
+  "01-mall-entrance": {
+    "source": "01-mall-entrance.HEIC",
+    "width": 13734,
+    "height": 3798,
+    "haov": 239.4,
+    "vaov": 66.2
+  },
+  "02-apollo-entrance": {
+    "source": "02-apollo-entrance.HEIC",
+    "width": 9416,
+    "height": 3964,
+    "haov": 157.3,
+    "vaov": 66.2
+  },
+  "03-entrance": {
+    "source": "03-entrance.HEIC",
+    "width": 11660,
+    "height": 3882,
+    "haov": 198.8,
+    "vaov": 66.2
+  },
+  "04-nachalo": {
+    "source": "04-nachalo.HEIC",
+    "width": 12764,
+    "height": 3900,
+    "haov": 216.7,
+    "vaov": 66.2
+  },
+  "05-vatrushka": {
+    "source": "05-vatrushka.HEIC",
+    "width": 13678,
+    "height": 3904,
+    "haov": 231.9,
+    "vaov": 66.2
+  },
+  "06-batut": {
+    "source": "06-batut.HEIC",
+    "width": 16376,
+    "height": 3866,
+    "haov": 280.4,
+    "vaov": 66.2
+  },
+  "07-detskaya": {
+    "source": "07-detskaya.HEIC",
+    "width": 14782,
+    "height": 3916,
+    "haov": 249.9,
+    "vaov": 66.2
+  },
+  "08-bigdryballpool": {
+    "source": "08-bigdryballpool.HEIC",
+    "width": 16368,
+    "height": 3930,
+    "haov": 275.7,
+    "vaov": 66.2
+  },
+  "09-karusel": {
+    "source": "09-karusel.HEIC",
+    "width": 16368,
+    "height": 3868,
+    "haov": 280.1,
+    "vaov": 66.2
+  },
+  "10-parentschillzone": {
+    "source": "10-parentschillzone.HEIC",
+    "width": 16374,
+    "height": 3864,
+    "haov": 280.5,
+    "vaov": 66.2
+  },
+  "11-zipline": {
+    "source": "11-zipline.HEIC",
+    "width": 16370,
+    "height": 3872,
+    "haov": 279.9,
+    "vaov": 66.2
+  },
+  "12-2ndfloor-1": {
+    "source": "12-2ndfloor-1.HEIC",
+    "width": 14514,
+    "height": 3926,
+    "haov": 244.7,
+    "vaov": 66.2
+  },
+  "13-2ndfloor-2": {
+    "source": "13-2ndfloor-2.HEIC",
+    "width": 16084,
+    "height": 3900,
+    "haov": 273.0,
+    "vaov": 66.2
+  },
+  "14-2ndfloor-3": {
+    "source": "14-2ndfloor-3.HEIC",
+    "width": 16382,
+    "height": 3870,
+    "haov": 280.2,
+    "vaov": 66.2
+  },
+  "15-2ndfloor-4": {
+    "source": "15-2ndfloor-4.HEIC",
+    "width": 16374,
+    "height": 3816,
+    "haov": 284.1,
+    "vaov": 66.2
+  },
+  "16-vip1small": {
+    "source": "16-vip1small.HEIC",
+    "width": 10382,
+    "height": 3948,
+    "haov": 174.1,
+    "vaov": 66.2
+  },
+  "17-vip2big": {
+    "source": "17-vip2big.HEIC",
+    "width": 10500,
+    "height": 3932,
+    "haov": 176.8,
+    "vaov": 66.2
+  }
+}

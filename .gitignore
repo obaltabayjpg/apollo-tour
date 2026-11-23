@@ -1,0 +1,6 @@
+# Оригиналы HEIC (~107 МБ) на сайт не нужны — храните их у себя
+panoramas/
+*.HEIC
+*.heic
+__pycache__/
+.vercel

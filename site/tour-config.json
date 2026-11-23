@@ -1,0 +1,892 @@
+{
+  "_readme": "Конфигурация тура. Тексты: либо строка, либо объект {\"ru\":..., \"kk\":..., \"en\":...}. Координаты меток (pitch/yaw) удобно снимать в режиме редактора: откройте сайт с ?edit=1",
+  "languages": [
+    "ru"
+  ],
+  "defaultLanguage": "ru",
+  "venue": {
+    "name": "Apollo",
+    "title": {
+      "ru": "Apollo — виртуальный тур"
+    },
+    "subtitle": {
+      "ru": "Актау, Сая Парк"
+    },
+    "tagline": {
+      "ru": "Семейный развлекательный центр"
+    },
+    "address": {
+      "ru": "г. Актау, 10-й микрорайон, 3, ТРЦ Saya Park, 2 этаж"
+    },
+    "phone": "+7 (708) 070-37-37",
+    "whatsapp": "+7 (708) 070-37-37",
+    "whatsappText": {
+      "ru": "Здравствуйте! Пишу с сайта виртуального тура Apollo."
+    },
+    "instagram": "https://www.instagram.com/apollo_aktau/",
+    "mapUrl": "https://2gis.kz/aktau/firm/70000001102208360"
+  },
+  "settings": {
+    "firstScene": "01-mall-entrance",
+    "imagePath": "images/pano/",
+    "thumbPath": "images/thumbs/",
+    "sceneFadeDuration": 700,
+    "autoRotate": -1.5,
+    "autoRotateInactivityDelay": 15000
+  },
+  "groups": [
+    {
+      "id": "entrance",
+      "title": {
+        "ru": "Вход"
+      }
+    },
+    {
+      "id": "floor1",
+      "title": {
+        "ru": "1 этаж"
+      }
+    },
+    {
+      "id": "floor2",
+      "title": {
+        "ru": "2 этаж"
+      }
+    },
+    {
+      "id": "vip",
+      "title": {
+        "ru": "VIP-комнаты"
+      }
+    }
+  ],
+  "scenes": [
+    {
+      "id": "01-mall-entrance",
+      "group": "entrance",
+      "title": {
+        "ru": "Вход в ТРЦ Saya Park"
+      },
+      "image": "01-mall-entrance",
+      "haov": 239.4,
+      "vaov": 66.2,
+      "vOffset": 0,
+      "yaw": 0,
+      "pitch": 0,
+      "hfov": 100,
+      "hotSpots": [
+        {
+          "type": "scene",
+          "target": "02-apollo-entrance",
+          "pitch": -2.2,
+          "yaw": 9.4,
+          "text": {
+            "ru": "Вход в Apollo"
+          }
+        },
+        {
+          "type": "info",
+          "pitch": -16.8,
+          "yaw": -30.7,
+          "text": {
+            "ru": "ТРЦ Saya Park"
+          },
+          "description": {
+            "ru": "Apollo находится в ТРЦ Saya Park. Пройдите по галерее к входу в Apollo."
+          }
+        }
+      ]
+    },
+    {
+      "id": "02-apollo-entrance",
+      "group": "entrance",
+      "title": {
+        "ru": "Вход в Apollo"
+      },
+      "image": "02-apollo-entrance",
+      "haov": 157.3,
+      "vaov": 66.2,
+      "vOffset": 0,
+      "yaw": 0,
+      "pitch": 0,
+      "hfov": 100,
+      "hotSpots": [
+        {
+          "type": "scene",
+          "target": "03-entrance",
+          "pitch": -10.4,
+          "yaw": -12.8,
+          "text": {
+            "ru": "Рецепшн"
+          }
+        },
+        {
+          "type": "scene",
+          "target": "01-mall-entrance",
+          "pitch": -10.9,
+          "yaw": -66.4,
+          "text": {
+            "ru": "Вход в ТРЦ Saya Park"
+          }
+        },
+        {
+          "type": "info",
+          "pitch": -8,
+          "yaw": 5.4,
+          "text": {
+            "ru": "Вход"
+          },
+          "description": {
+            "ru": "Главный вход в семейный развлекательный центр Apollo."
+          }
+        }
+      ]
+    },
+    {
+      "id": "03-entrance",
+      "group": "entrance",
+      "title": {
+        "ru": "Рецепшн"
+      },
+      "image": "03-entrance",
+      "haov": 198.8,
+      "vaov": 66.2,
+      "vOffset": 0,
+      "yaw": 0,
+      "pitch": 0,
+      "hfov": 100,
+      "hotSpots": [
+        {
+          "type": "scene",
+          "target": "04-nachalo",
+          "pitch": -8.9,
+          "yaw": -6.5,
+          "text": {
+            "ru": "Начало парка"
+          }
+        },
+        {
+          "type": "scene",
+          "target": "02-apollo-entrance",
+          "pitch": -10,
+          "yaw": 78,
+          "text": {
+            "ru": "Вход в Apollo"
+          }
+        },
+        {
+          "type": "info",
+          "pitch": -16.8,
+          "yaw": -49,
+          "text": {
+            "ru": "Рецепшн"
+          },
+          "description": {
+            "ru": "Касса и стойка администратора: билеты, браслеты, консультация."
+          }
+        },
+        {
+          "type": "info",
+          "pitch": -16,
+          "yaw": 64.6,
+          "text": {
+            "ru": "Автомат с игрушками"
+          }
+        },
+        {
+          "type": "info",
+          "pitch": -15.1,
+          "yaw": 34.6,
+          "text": {
+            "ru": "Гардероб"
+          }
+        }
+      ]
+    },
+    {
+      "id": "04-nachalo",
+      "group": "floor1",
+      "title": {
+        "ru": "Начало парка"
+      },
+      "image": "04-nachalo",
+      "haov": 216.7,
+      "vaov": 66.2,
+      "vOffset": 0,
+      "yaw": 0,
+      "pitch": 0,
+      "hfov": 100,
+      "hotSpots": [
+        {
+          "type": "scene",
+          "target": "05-vatrushka",
+          "pitch": -4.2,
+          "yaw": 56.5,
+          "text": {
+            "ru": "Горка «Ватрушка»"
+          }
+        },
+        {
+          "type": "scene",
+          "target": "03-entrance",
+          "pitch": -10,
+          "yaw": -95,
+          "text": {
+            "ru": "Рецепшн"
+          }
+        },
+        {
+          "type": "info",
+          "pitch": -11.8,
+          "yaw": 71.3,
+          "text": {
+            "ru": "Полоса препятствий"
+          }
+        },
+        {
+          "type": "scene",
+          "pitch": -7.8,
+          "yaw": -28.1,
+          "target": "10-parentschillzone"
+        },
+        {
+          "type": "scene",
+          "pitch": -3.9,
+          "yaw": 14.2,
+          "target": "08-bigdryballpool"
+        },
+        {
+          "type": "scene",
+          "pitch": -2.3,
+          "yaw": -5.4,
+          "target": "09-karusel"
+        },
+        {
+          "type": "scene",
+          "pitch": -6.4,
+          "yaw": 40,
+          "target": "12-2ndfloor-1"
+        },
+        {
+          "type": "scene",
+          "pitch": -2.7,
+          "yaw": 87.3,
+          "target": "07-detskaya"
+        }
+      ]
+    },
+    {
+      "id": "05-vatrushka",
+      "group": "floor1",
+      "title": {
+        "ru": "Горка «Ватрушка»"
+      },
+      "image": "05-vatrushka",
+      "haov": 231.9,
+      "vaov": 66.2,
+      "vOffset": 0,
+      "yaw": 0,
+      "pitch": 0,
+      "hfov": 100,
+      "hotSpots": [
+        {
+          "type": "scene",
+          "target": "06-batut",
+          "pitch": -0.3,
+          "yaw": 83,
+          "text": {
+            "ru": "Батуты"
+          }
+        },
+        {
+          "type": "scene",
+          "target": "04-nachalo",
+          "pitch": -10,
+          "yaw": -100,
+          "text": {
+            "ru": "Начало парка"
+          }
+        },
+        {
+          "type": "info",
+          "pitch": 1.8,
+          "yaw": 46.1,
+          "text": {
+            "ru": "Горка «Ватрушка»"
+          }
+        },
+        {
+          "type": "info",
+          "pitch": -8.1,
+          "yaw": 63.8,
+          "text": {
+            "ru": "Скалодром"
+          }
+        },
+        {
+          "type": "info",
+          "pitch": -20.6,
+          "yaw": -9.7,
+          "text": {
+            "ru": "Аквагрим"
+          }
+        },
+        {
+          "type": "scene",
+          "pitch": 18.2,
+          "yaw": 8.7,
+          "target": "12-2ndfloor-1"
+        }
+      ]
+    },
+    {
+      "id": "06-batut",
+      "group": "floor1",
+      "title": {
+        "ru": "Батуты"
+      },
+      "image": "06-batut",
+      "haov": 280.4,
+      "vaov": 66.2,
+      "vOffset": 0,
+      "yaw": 0,
+      "pitch": 0,
+      "hfov": 100,
+      "hotSpots": [
+        {
+          "type": "scene",
+          "target": "07-detskaya",
+          "pitch": -6.4,
+          "yaw": -107.4,
+          "text": {
+            "ru": "Детская зона"
+          }
+        },
+        {
+          "type": "scene",
+          "target": "05-vatrushka",
+          "pitch": -6,
+          "yaw": -30,
+          "text": {
+            "ru": "Горка «Ватрушка»"
+          }
+        },
+        {
+          "type": "info",
+          "pitch": -3.6,
+          "yaw": 86,
+          "text": {
+            "ru": "Батуты"
+          }
+        },
+        {
+          "type": "info",
+          "pitch": -19.9,
+          "yaw": -44.5,
+          "text": {
+            "ru": "Поролоновый бассейн"
+          }
+        }
+      ]
+    },
+    {
+      "id": "07-detskaya",
+      "group": "floor1",
+      "title": {
+        "ru": "Детская зона"
+      },
+      "image": "07-detskaya",
+      "haov": 249.9,
+      "vaov": 66.2,
+      "vOffset": 0,
+      "yaw": 0,
+      "pitch": 0,
+      "hfov": 100,
+      "hotSpots": [
+        {
+          "type": "scene",
+          "target": "06-batut",
+          "pitch": -2.7,
+          "yaw": -92.3,
+          "text": {
+            "ru": "Батуты"
+          }
+        },
+        {
+          "type": "info",
+          "pitch": -17.5,
+          "yaw": -52.1,
+          "text": {
+            "ru": "Сухой бассейн с горкой"
+          }
+        },
+        {
+          "type": "info",
+          "pitch": -9.6,
+          "yaw": 74.8,
+          "text": {
+            "ru": "Детский городок"
+          }
+        }
+      ]
+    },
+    {
+      "id": "08-bigdryballpool",
+      "group": "floor1",
+      "title": {
+        "ru": "Большой сухой бассейн"
+      },
+      "image": "08-bigdryballpool",
+      "haov": 275.7,
+      "vaov": 66.2,
+      "vOffset": 0,
+      "yaw": 0,
+      "pitch": 0,
+      "hfov": 100,
+      "hotSpots": [
+        {
+          "type": "scene",
+          "target": "09-karusel",
+          "pitch": -2.4,
+          "yaw": -72.9,
+          "text": {
+            "ru": "Карусель"
+          }
+        },
+        {
+          "type": "info",
+          "pitch": -15,
+          "yaw": -70,
+          "text": {
+            "ru": "Большой сухой бассейн"
+          }
+        },
+        {
+          "type": "info",
+          "pitch": -4.4,
+          "yaw": 11.9,
+          "text": {
+            "ru": "Горки-трубы"
+          }
+        },
+        {
+          "type": "info",
+          "pitch": -8.7,
+          "yaw": 60.4,
+          "text": {
+            "ru": "Вход в лабиринт"
+          }
+        },
+        {
+          "type": "scene",
+          "pitch": 15.3,
+          "yaw": 17.5,
+          "target": "11-zipline"
+        },
+        {
+          "type": "scene",
+          "pitch": -3.7,
+          "yaw": 103.8,
+          "target": "05-vatrushka"
+        },
+        {
+          "type": "scene",
+          "pitch": -5.1,
+          "yaw": -121,
+          "target": "10-parentschillzone"
+        }
+      ]
+    },
+    {
+      "id": "09-karusel",
+      "group": "floor1",
+      "title": {
+        "ru": "Карусель"
+      },
+      "image": "09-karusel",
+      "haov": 280.1,
+      "vaov": 66.2,
+      "vOffset": 0,
+      "yaw": 0,
+      "pitch": 0,
+      "hfov": 100,
+      "hotSpots": [
+        {
+          "type": "scene",
+          "target": "08-bigdryballpool",
+          "pitch": -6.8,
+          "yaw": 97.4,
+          "text": {
+            "ru": "Большой сухой бассейн"
+          }
+        },
+        {
+          "type": "info",
+          "pitch": -6.6,
+          "yaw": -6.7,
+          "text": {
+            "ru": "Карусель"
+          }
+        },
+        {
+          "type": "info",
+          "pitch": 2,
+          "yaw": 30,
+          "text": {
+            "ru": "Ракета"
+          }
+        },
+        {
+          "type": "info",
+          "pitch": -4.2,
+          "yaw": -22.2,
+          "text": {
+            "ru": "Вход в лабиринт"
+          }
+        },
+        {
+          "type": "scene",
+          "pitch": -1.1,
+          "yaw": 128.4,
+          "target": "04-nachalo"
+        }
+      ]
+    },
+    {
+      "id": "10-parentschillzone",
+      "group": "floor1",
+      "title": {
+        "ru": "Зона отдыха для родителей"
+      },
+      "image": "10-parentschillzone",
+      "haov": 280.5,
+      "vaov": 66.2,
+      "vOffset": 0,
+      "yaw": 0,
+      "pitch": 0,
+      "hfov": 100,
+      "hotSpots": [
+        {
+          "type": "scene",
+          "target": "09-karusel",
+          "pitch": 4.6,
+          "yaw": 59.6,
+          "text": {
+            "ru": "Карусель"
+          }
+        },
+        {
+          "type": "info",
+          "pitch": -5,
+          "yaw": 86.6,
+          "text": {
+            "ru": "Зона для родителей"
+          },
+          "description": {
+            "ru": "Здесь можно отдохнуть, пока дети играют."
+          }
+        },
+        {
+          "type": "info",
+          "pitch": -1.1,
+          "yaw": -26.5,
+          "text": {
+            "ru": "Slime Lab"
+          }
+        },
+        {
+          "type": "info",
+          "pitch": -3.7,
+          "yaw": -96.9,
+          "text": {
+            "ru": "Магазин игрушек"
+          }
+        },
+        {
+          "type": "info",
+          "pitch": -2.3,
+          "yaw": -66.8,
+          "text": {
+            "ru": "Фотографы"
+          }
+        },
+        {
+          "type": "scene",
+          "pitch": -2.9,
+          "yaw": 124.7,
+          "target": "04-nachalo"
+        },
+        {
+          "type": "scene",
+          "pitch": 3.8,
+          "yaw": 80.4,
+          "target": "08-bigdryballpool"
+        }
+      ]
+    },
+    {
+      "id": "11-zipline",
+      "group": "floor1",
+      "title": {
+        "ru": "Зиплайн"
+      },
+      "image": "11-zipline",
+      "haov": 279.9,
+      "vaov": 66.2,
+      "vOffset": 0,
+      "yaw": 0,
+      "pitch": 0,
+      "hfov": 100,
+      "hotSpots": [
+        {
+          "type": "info",
+          "pitch": 2.2,
+          "yaw": -2,
+          "text": {
+            "ru": "Зиплайн"
+          }
+        },
+        {
+          "type": "scene",
+          "pitch": -22.8,
+          "yaw": 1.5,
+          "target": "08-bigdryballpool"
+        }
+      ]
+    },
+    {
+      "id": "12-2ndfloor-1",
+      "group": "floor2",
+      "title": {
+        "ru": "2 этаж — игровые автоматы"
+      },
+      "image": "12-2ndfloor-1",
+      "haov": 244.7,
+      "vaov": 66.2,
+      "vOffset": 0,
+      "yaw": 0,
+      "pitch": 0,
+      "hfov": 100,
+      "hotSpots": [
+        {
+          "type": "scene",
+          "target": "13-2ndfloor-2",
+          "pitch": 1.9,
+          "yaw": -47.1,
+          "text": {
+            "ru": "2 этаж — тир"
+          }
+        },
+        {
+          "type": "info",
+          "pitch": -5,
+          "yaw": -20,
+          "text": {
+            "ru": "Игровые автоматы"
+          }
+        },
+        {
+          "type": "scene",
+          "pitch": -2.3,
+          "yaw": -82.6,
+          "target": "14-2ndfloor-3"
+        },
+        {
+          "type": "scene",
+          "pitch": -4.4,
+          "yaw": -60.5,
+          "target": "15-2ndfloor-4"
+        }
+      ]
+    },
+    {
+      "id": "13-2ndfloor-2",
+      "group": "floor2",
+      "title": {
+        "ru": "2 этаж — тир"
+      },
+      "image": "13-2ndfloor-2",
+      "haov": 273,
+      "vaov": 66.2,
+      "vOffset": 0,
+      "yaw": 0,
+      "pitch": 0,
+      "hfov": 100,
+      "hotSpots": [
+        {
+          "type": "scene",
+          "target": "14-2ndfloor-3",
+          "pitch": 5.3,
+          "yaw": 22.3,
+          "text": {
+            "ru": "2 этаж — VR-зона"
+          }
+        },
+        {
+          "type": "scene",
+          "target": "12-2ndfloor-1",
+          "pitch": -10,
+          "yaw": -120,
+          "text": {
+            "ru": "2 этаж — игровые автоматы"
+          }
+        },
+        {
+          "type": "info",
+          "pitch": 0,
+          "yaw": 75,
+          "text": {
+            "ru": "Тир Air Shooting"
+          }
+        },
+        {
+          "type": "info",
+          "pitch": -3.9,
+          "yaw": -7.7,
+          "text": {
+            "ru": "Аэрохоккей"
+          }
+        },
+        {
+          "type": "scene",
+          "pitch": 3.7,
+          "yaw": -31.3,
+          "target": "12-2ndfloor-1"
+        },
+        {
+          "type": "scene",
+          "pitch": 2.3,
+          "yaw": -2.2,
+          "target": "15-2ndfloor-4"
+        }
+      ]
+    },
+    {
+      "id": "14-2ndfloor-3",
+      "group": "floor2",
+      "title": {
+        "ru": "2 этаж — VR-зона"
+      },
+      "image": "14-2ndfloor-3",
+      "haov": 280.2,
+      "vaov": 66.2,
+      "vOffset": 0,
+      "yaw": 0,
+      "pitch": 0,
+      "hfov": 100,
+      "hotSpots": [
+        {
+          "type": "scene",
+          "target": "15-2ndfloor-4",
+          "pitch": -1.9,
+          "yaw": -10.6,
+          "text": {
+            "ru": "2 этаж — симуляторы"
+          }
+        },
+        {
+          "type": "scene",
+          "target": "13-2ndfloor-2",
+          "pitch": 0.4,
+          "yaw": -62.4,
+          "text": {
+            "ru": "2 этаж — тир"
+          }
+        },
+        {
+          "type": "scene",
+          "pitch": 2.7,
+          "yaw": 23.5,
+          "target": "12-2ndfloor-1"
+        }
+      ]
+    },
+    {
+      "id": "15-2ndfloor-4",
+      "group": "floor2",
+      "title": {
+        "ru": "2 этаж — симуляторы"
+      },
+      "image": "15-2ndfloor-4",
+      "haov": 284.1,
+      "vaov": 66.2,
+      "vOffset": 0,
+      "yaw": 0,
+      "pitch": 0,
+      "hfov": 100,
+      "hotSpots": [
+        {
+          "type": "scene",
+          "pitch": -0.7,
+          "yaw": 94.2,
+          "target": "13-2ndfloor-2"
+        },
+        {
+          "type": "scene",
+          "pitch": -3.6,
+          "yaw": -108.6,
+          "target": "12-2ndfloor-1"
+        },
+        {
+          "type": "scene",
+          "pitch": -1.3,
+          "yaw": -12.2,
+          "target": "16-vip1small"
+        },
+        {
+          "type": "scene",
+          "pitch": -1.3,
+          "yaw": 1.6,
+          "target": "17-vip2big"
+        }
+      ]
+    },
+    {
+      "id": "16-vip1small",
+      "group": "vip",
+      "title": {
+        "ru": "VIP-комната (малая)"
+      },
+      "image": "16-vip1small",
+      "haov": 174.1,
+      "vaov": 66.2,
+      "vOffset": 0,
+      "yaw": 0,
+      "pitch": 0,
+      "hfov": 100,
+      "hotSpots": [
+        {
+          "type": "scene",
+          "target": "15-2ndfloor-4",
+          "pitch": -23.8,
+          "yaw": -23.5,
+          "text": {
+            "ru": "2 этаж — симуляторы"
+          }
+        }
+      ]
+    },
+    {
+      "id": "17-vip2big",
+      "group": "vip",
+      "title": {
+        "ru": "VIP-комната (большая)"
+      },
+      "image": "17-vip2big",
+      "haov": 176.8,
+      "vaov": 66.2,
+      "vOffset": 0,
+      "yaw": 0,
+      "pitch": 0,
+      "hfov": 100,
+      "hotSpots": [
+        {
+          "type": "scene",
+          "pitch": -27.4,
+          "yaw": -12.5,
+          "target": "15-2ndfloor-4"
+        }
+      ]
+    }
+  ]
+}
