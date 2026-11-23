@@ -3,183 +3,457 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Apollo — виртуальный тур</title>
-  <meta name="description" content="Виртуальный 3D-тур по семейному развлекательному центру Apollo в Актау, ТРЦ Сая Парк (Saya Park): батуты, сухие бассейны, зиплайн, игровые автоматы и VIP-комнаты для праздников.">
-  <meta name="theme-color" content="#0b0820">
+  <title>Apollo — детский развлекательный парк в Актау, Saya Park</title>
+  <meta name="description" content="Apollo — большой семейный парк развлечений на 2 этаже ТРЦ Saya Park в Актау: батуты, зиплайн, ниндзя-парк, сухие бассейны, VR, тир и VIP-комнаты для дня рождения. Посмотрите парк в 3D до визита.">
+  <meta name="theme-color" content="#120a2e">
 
-  <!--
-    ЗАМЕНИТЕ https://example.com на адрес вашего сайта (3 места ниже).
-    Для превью в WhatsApp/Telegram ссылка на картинку должна быть полной (с https://).
-  -->
+  <!-- ЗАМЕНИТЕ https://example.com на адрес сайта (4 места в этом блоке + JSON-LD ниже) -->
   <link rel="canonical" href="https://example.com/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Apollo">
   <meta property="og:locale" content="ru_RU">
-  <meta property="og:title" content="Apollo — виртуальный тур">
-  <meta property="og:description" content="Прогуляйтесь по Apollo, не выходя из дома. Актау, Сая Парк.">
+  <meta property="og:locale:alternate" content="kk_KZ">
+  <meta property="og:title" content="Apollo — детский парк развлечений в Актау">
+  <meta property="og:description" content="Батуты, зиплайн, ниндзя-парк, VR и VIP-комнаты для праздников. Saya Park, 2 этаж. Загляните внутрь в 3D!">
   <meta property="og:url" content="https://example.com/">
-  <meta property="og:image" content="https://example.com/assets/og-image.jpg">
+  <meta property="og:image" content="https://example.com/img/og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Apollo — виртуальный тур, Актау, Сая Парк">
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="icon" href="tour/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="tour/assets/apple-touch-icon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Unbounded:wght@500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@600;700;800&display=swap">
+  <link rel="preload" as="image" href="img/hero-strip-sm.webp" media="(max-width: 767px)">
+  <link rel="preload" as="image" href="img/hero-strip.webp" media="(min-width: 768px)">
+  <link rel="stylesheet" href="css/site.css">
 
-  <link rel="stylesheet" href="vendor/pannellum/pannellum.css">
-  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AmusementPark",
+    "name": "Apollo",
+    "description": "Семейный развлекательный центр: батуты, зиплайн, ниндзя-парк, сухие бассейны, VR, тир, VIP-комнаты для дня рождения.",
+    "url": "https://example.com/",
+    "image": "https://example.com/img/og.jpg",
+    "telephone": "+77080703737",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "10-й микрорайон, 3, ТРЦ Saya Park, 2 этаж",
+      "addressLocality": "Актау",
+      "addressCountry": "KZ"
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "10:00",
+      "closes": "21:45"
+    }],
+    "sameAs": [
+      "https://www.instagram.com/apollo_aktau/",
+      "https://2gis.kz/aktau/firm/70000001102208360"
+    ],
+    "currenciesAccepted": "KZT"
+  }
+  </script>
 </head>
 <body>
-<div id="app" class="app">
+<a class="skip" href="#main" data-i18n="skip">К содержимому</a>
 
-  <!-- Панорама -->
-  <div id="pano" class="pano" aria-label="Панорама"></div>
-
-  <!-- Верхняя панель -->
-  <header class="topbar">
-    <div class="brand">
-      <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="7" fill="currentColor"/><ellipse cx="16" cy="16" rx="14" ry="5" fill="none" stroke="currentColor" stroke-width="2" transform="rotate(-25 16 16)"/></svg>
-      </span>
-      <div class="brand-text">
-        <span class="brand-name" data-venue="name">Apollo</span>
-        <span id="sceneTitle" class="scene-title"></span>
+<!-- ============ ШАПКА ============ -->
+<header class="header" id="header">
+  <div class="wrap header-in">
+    <a class="logo" href="#top" aria-label="Apollo — наверх">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="9" fill="#f5f3ff"/><ellipse cx="20" cy="20" rx="18" ry="6" fill="none" stroke="#ff8a3d" stroke-width="3" transform="rotate(-25 20 20)"/></svg>
+      <span>APOLLO</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Меню">
+      <a href="#tour" data-i18n="nav.tour">3D-тур</a>
+      <a href="#zones" data-i18n="nav.zones">Зоны</a>
+      <a href="#prices" data-i18n="nav.prices">Цены</a>
+      <a href="#party" data-i18n="nav.party">День рождения</a>
+      <a href="#find" data-i18n="nav.find">Как найти</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang" role="group" aria-label="Язык / Тіл">
+        <button type="button" data-lang="ru" aria-pressed="true">RU</button>
+        <button type="button" data-lang="kk" aria-pressed="false">ҚАЗ</button>
       </div>
-    </div>
-    <div class="topbar-actions">
-      <button id="langBtn" class="icon-btn lang-btn" type="button" hidden data-i18n-aria="language"></button>
-      <button id="infoBtn" class="icon-btn" type="button" data-i18n-aria="info" data-i18n-title="info">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.5v.01"/></svg>
-      </button>
-      <button id="fsBtn" class="icon-btn" type="button" data-i18n-aria="fullscreen" data-i18n-title="fullscreen">
-        <svg class="i-enter" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
-        <svg class="i-exit" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg>
-      </button>
-    </div>
-  </header>
-
-  <!-- Нижняя навигация -->
-  <nav class="scene-nav" aria-label="Навигация по локациям">
-    <button id="prevBtn" class="icon-btn" type="button" data-i18n-aria="prev" data-i18n-title="prev">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
-    </button>
-    <button id="listBtn" class="pill-btn" type="button" aria-controls="drawer" aria-expanded="false">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>
-      <span data-i18n="locations">Локации</span>
-      <span id="counter" class="counter"></span>
-    </button>
-    <button id="nextBtn" class="icon-btn" type="button" data-i18n-aria="next" data-i18n-title="next">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-    </button>
-  </nav>
-
-  <!-- Список локаций -->
-  <div id="scrim" class="scrim" hidden></div>
-  <aside id="drawer" class="drawer" aria-hidden="true" aria-labelledby="drawerTitle">
-    <div class="sheet-handle" aria-hidden="true"></div>
-    <div class="drawer-head">
-      <h2 id="drawerTitle" data-i18n="allLocations">Все локации</h2>
-      <button class="icon-btn ghost" type="button" data-close data-i18n-aria="close">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
-    </div>
-    <div id="sceneList" class="scene-list"></div>
-  </aside>
-
-  <!-- О заведении -->
-  <aside id="infoCard" class="card info-card" aria-hidden="true" aria-labelledby="infoTitle">
-    <div class="card-head">
-      <div>
-        <h2 id="infoTitle" data-venue="name">Apollo</h2>
-        <p class="muted" data-venue="tagline"></p>
-      </div>
-      <button class="icon-btn ghost" type="button" data-close data-i18n-aria="close">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
-    </div>
-    <dl class="contacts">
-      <div class="contact-row">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-        <div><dt data-i18n="address">Адрес</dt><dd data-venue="address"></dd></div>
-      </div>
-      <div class="contact-row">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-        <div><dt data-i18n="hours">Часы работы</dt><dd data-venue="hours"></dd></div>
-      </div>
-      <div class="contact-row">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
-        <div><dt data-i18n="phone">Телефон</dt><dd><a data-venue-phone></a></dd></div>
-      </div>
-    </dl>
-    <div class="card-actions">
-      <a class="btn btn-primary" data-venue-map target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14"/></svg>
-        <span data-i18n="openMap">Открыть в 2ГИС</span>
+      <a class="btn btn-wa btn-sm hide-sm" data-wa data-wa-text="wa.hello" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span>
       </a>
-      <a class="btn btn-ghost" data-venue-call>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
-        <span data-i18n="call">Позвонить</span>
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Меню" data-i18n-attr="aria-label:menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ ПЕРВЫЙ ЭКРАН ============ -->
+<section class="hero" id="top">
+  <div class="hero-pano" aria-hidden="true">
+    <picture>
+      <source media="(max-width: 767px)" srcset="img/hero-strip-sm.webp">
+      <img src="img/hero-strip.webp" alt="" width="5587" height="1100" fetchpriority="high">
+    </picture>
+  </div>
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <p class="status" id="status"><i></i><span data-i18n="hours.loading">Saya Park, 2 этаж</span></p>
+    <h1 class="hero-title" data-i18n-html="hero.title">Целая <em>вселенная</em> игр&nbsp;для&nbsp;детей</h1>
+    <p class="hero-sub" data-i18n="hero.sub">Батуты, зиплайн, ниндзя-парк, сухие бассейны, VR и тир — на 2 этаже Saya Park. Время игры не ограничено.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary btn-lg" href="#tour">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-360"/></svg>
+        <span data-i18n="hero.cta3d">Заглянуть внутрь в 3D</span>
       </a>
-      <a class="btn btn-ghost btn-wa" data-venue-whatsapp target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 8.5c0 3.5 2.5 6.5 6.5 6.5l1-1.5-2-1-1 1c-1.3-.5-2.5-1.7-3-3l1-1-1-2z" fill="currentColor" stroke="none"/></svg>
-        <span data-i18n="whatsapp">WhatsApp</span>
-      </a>
-      <a class="btn btn-ghost btn-ig" data-venue-instagram target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5v.01"/></svg>
-        <span data-i18n="instagram">Instagram</span>
+      <a class="btn btn-glass btn-lg" href="#prices">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ticket"/></svg>
+        <span data-i18n="hero.ctaPrice">Посчитать стоимость</span>
       </a>
     </div>
-  </aside>
+    <ul class="hero-facts">
+      <li><b>17</b><span data-i18n="facts.locations">локаций в 3D-туре</span></li>
+      <li><b>∞</b><span data-i18n="facts.time">время игры</span></li>
+      <li><b data-rating>4,9</b><span data-i18n="facts.rating">рейтинг в 2ГИС</span></li>
+      <li><b>2</b><span data-i18n="facts.vip">VIP-комнаты для праздников</span></li>
+    </ul>
+  </div>
+</section>
 
-  <!-- Карточка инфо-метки -->
-  <aside id="hsCard" class="card hs-card" aria-hidden="true" aria-live="polite">
-    <div class="card-head">
-      <h2 id="hsTitle"></h2>
-      <button class="icon-btn ghost" type="button" data-close data-i18n-aria="close">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+<!-- ============ 3D-ТУР ============ -->
+<section class="section" id="tour">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker" data-i18n="tour.kicker">Виртуальная прогулка</p>
+      <h2 data-i18n-html="tour.title">Посмотрите Apollo <em>изнутри</em> ещё до&nbsp;визита</h2>
+      <p class="lead" data-i18n="tour.lead">17 панорам: от входа в ТРЦ до VIP-комнат. Крутите, переходите по стрелкам — как будто вы уже здесь.</p>
+    </div>
+
+    <div class="tour-frame" id="tourFrame">
+      <button class="tour-poster" id="tourPoster" type="button" data-scene="03-entrance">
+        <img src="img/way-reception.webp" alt="" loading="lazy" width="1000" height="750">
+        <span class="tour-play">
+          <span class="tour-play-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-360"/></svg></span>
+          <span data-i18n="tour.start">Начать 3D-прогулку</span>
+        </span>
       </button>
     </div>
-    <p id="hsDesc" class="muted"></p>
-  </aside>
 
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <div class="tour-chips" role="group" aria-label="Быстрый переход" data-i18n-attr="aria-label:tour.quick">
+      <button type="button" class="chip" data-scene="02-apollo-entrance" data-i18n="tour.c.entrance">Вход</button>
+      <button type="button" class="chip" data-scene="06-batut" data-i18n="tour.c.trampoline">Батуты</button>
+      <button type="button" class="chip" data-scene="08-bigdryballpool" data-i18n="tour.c.ballpool">Сухой бассейн</button>
+      <button type="button" class="chip" data-scene="04-nachalo" data-i18n="tour.c.ninja">Ниндзя-парк</button>
+      <button type="button" class="chip" data-scene="11-zipline" data-i18n="tour.c.zipline">Зиплайн</button>
+      <button type="button" class="chip" data-scene="13-2ndfloor-2" data-i18n="tour.c.arcade">Автоматы и тир</button>
+      <button type="button" class="chip" data-scene="17-vip2big" data-i18n="tour.c.vip">VIP-комната</button>
+      <a class="chip chip-link" href="tour/" data-i18n="tour.full">Открыть на весь экран ↗</a>
+    </div>
+  </div>
+</section>
 
-  <!-- Приветственный экран -->
-  <section id="welcome" class="welcome" aria-labelledby="welcomeTitle">
-    <div class="welcome-inner">
-      <div class="welcome-logo" aria-hidden="true">
-        <svg viewBox="0 0 64 64"><defs><linearGradient id="wg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c4b5fd"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><circle cx="32" cy="32" r="14" fill="url(#wg)"/><ellipse cx="32" cy="32" rx="29" ry="10" fill="none" stroke="#ff8a3d" stroke-width="3" transform="rotate(-25 32 32)"/><circle cx="56" cy="20" r="3" fill="#ff8a3d"/></svg>
+<!-- ============ ЗОНЫ ============ -->
+<section class="section section-soft" id="zones">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker" data-i18n="zones.kicker">Что внутри</p>
+      <h2 data-i18n-html="zones.title">Один билет — <em>14 зон</em> приключений</h2>
+      <p class="lead" data-i18n="zones.lead">Нажмите на любую зону, чтобы оказаться в ней в 3D.</p>
+    </div>
+    <div class="zones">
+      <a class="zone zone-xl" href="tour/#08-bigdryballpool">
+        <img src="img/zone-ballpool.webp" alt="Большой сухой бассейн" loading="lazy" width="1000" height="750" data-i18n-attr="alt:z.ballpool">
+        <span class="zone-3d">3D</span>
+        <span class="zone-txt"><b data-i18n="z.ballpool">Большой сухой бассейн</b><small data-i18n="z.ballpool.d">Море разноцветных шариков и игровая башня</small></span>
+      </a>
+      <a class="zone zone-tall" href="tour/#05-vatrushka">
+        <img src="img/zone-climb.webp" alt="Скалодром" loading="lazy" width="720" height="960" data-i18n-attr="alt:z.climb">
+        <span class="zone-3d">3D</span>
+        <span class="zone-txt"><b data-i18n="z.climb">Скалодром</b><small data-i18n="z.climb.d">Стена с яркими зацепами для юных альпинистов</small></span>
+      </a>
+      <a class="zone" href="tour/#06-batut">
+        <img src="img/zone-trampoline.webp" alt="Батуты" loading="lazy" width="1000" height="750" data-i18n-attr="alt:z.trampoline">
+        <span class="zone-3d">3D</span>
+        <span class="zone-txt"><b data-i18n="z.trampoline">Батуты</b><small data-i18n="z.trampoline.d">Батутная арена — прыгаем выше всех</small></span>
+      </a>
+      <a class="zone" href="tour/#04-nachalo">
+        <img src="img/zone-ninja.webp" alt="Ниндзя-парк" loading="lazy" width="1000" height="750" data-i18n-attr="alt:z.ninja">
+        <span class="zone-3d">3D</span>
+        <span class="zone-txt"><b data-i18n="z.ninja">Ниндзя-парк</b><small data-i18n="z.ninja.d">Верёвочная трасса на высоте: мостики и переправы</small></span>
+      </a>
+      <a class="zone" href="tour/#11-zipline">
+        <img src="img/zone-zipline.webp" alt="Зиплайн" loading="lazy" width="1000" height="750" data-i18n-attr="alt:z.zipline">
+        <span class="zone-3d">3D</span>
+        <span class="zone-txt"><b data-i18n="z.zipline">Зиплайн</b><small data-i18n="z.zipline.d">Сетчатый лабиринт и полёт по тросу</small></span>
+      </a>
+      <a class="zone" href="tour/#05-vatrushka">
+        <img src="img/zone-slides.webp" alt="Горки" loading="lazy" width="1000" height="750" data-i18n-attr="alt:z.slides">
+        <span class="zone-3d">3D</span>
+        <span class="zone-txt"><b data-i18n="z.slides">Широкие горки</b><small data-i18n="z.slides.d">Съезжать можно всей компанией</small></span>
+      </a>
+      <a class="zone" href="tour/#06-batut">
+        <img src="img/zone-foam.webp" alt="Поролоновая яма" loading="lazy" width="1000" height="750" data-i18n-attr="alt:z.foam">
+        <span class="zone-3d">3D</span>
+        <span class="zone-txt"><b data-i18n="z.foam">Поролоновая яма</b><small data-i18n="z.foam.d">Мягкое приземление после смелых прыжков</small></span>
+      </a>
+      <a class="zone" href="tour/#08-bigdryballpool">
+        <img src="img/zone-tubes.webp" alt="Горки-трубы" loading="lazy" width="1000" height="750" data-i18n-attr="alt:z.tubes">
+        <span class="zone-3d">3D</span>
+        <span class="zone-txt"><b data-i18n="z.tubes">Горки-трубы</b><small data-i18n="z.tubes.d">Закрученные трубы прямо в шарики</small></span>
+      </a>
+      <a class="zone" href="tour/#07-detskaya">
+        <img src="img/zone-town.webp" alt="Детский городок" loading="lazy" width="1000" height="750" data-i18n-attr="alt:z.town">
+        <span class="zone-3d">3D</span>
+        <span class="zone-txt"><b data-i18n="z.town">Городок для малышей</b><small data-i18n="z.town.d">Домики, полиция, дорожки и конструктор</small></span>
+      </a>
+      <a class="zone" href="tour/#09-karusel">
+        <img src="img/zone-carousel.webp" alt="Карусель и ракета" loading="lazy" width="1000" height="750" data-i18n-attr="alt:z.carousel">
+        <span class="zone-3d">3D</span>
+        <span class="zone-txt"><b data-i18n="z.carousel">Карусель и ракета</b><small data-i18n="z.carousel.d">Космические аттракционы для самых маленьких</small></span>
+      </a>
+      <a class="zone" href="tour/#13-2ndfloor-2">
+        <img src="img/zone-arcade.webp" alt="Игровые автоматы" loading="lazy" width="1000" height="750" data-i18n-attr="alt:z.arcade">
+        <span class="zone-3d">3D</span>
+        <span class="zone-txt"><b data-i18n="z.arcade">Игровые автоматы</b><small data-i18n="z.arcade.d">Баскетбол, гонки, аэрохоккей и призы</small></span>
+      </a>
+      <a class="zone" href="tour/#13-2ndfloor-2">
+        <img src="img/zone-shooting.webp" alt="Тир" loading="lazy" width="1000" height="750" data-i18n-attr="alt:z.shooting">
+        <span class="zone-3d">3D</span>
+        <span class="zone-txt"><b data-i18n="z.shooting">Тир Air Shooting</b><small data-i18n="z.shooting.d">Почувствуйте себя настоящим снайпером</small></span>
+      </a>
+      <a class="zone zone-wide" href="tour/#15-2ndfloor-4">
+        <img src="img/zone-vr.webp" alt="VR и симуляторы" loading="lazy" width="1000" height="750" data-i18n-attr="alt:z.vr">
+        <span class="zone-3d">3D</span>
+        <span class="zone-txt"><b data-i18n="z.vr">VR и симуляторы</b><small data-i18n="z.vr.d">Виртуальные миры и кресла с эффектом движения</small></span>
+      </a>
+      <a class="zone zone-wide" href="tour/#10-parentschillzone">
+        <img src="img/zone-parents.webp" alt="Зона для родителей" loading="lazy" width="1000" height="750" data-i18n-attr="alt:z.parents">
+        <span class="zone-3d">3D</span>
+        <span class="zone-txt"><b data-i18n="z.parents">Зона для родителей</b><small data-i18n="z.parents.d">Можно присесть и отдохнуть, пока дети играют</small></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ЦЕНЫ ============ -->
+<section class="section section-dark" id="prices">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker" data-i18n="prices.kicker">Цены</p>
+      <h2 data-i18n-html="prices.title">Посчитайте визит <em>за 10 секунд</em></h2>
+      <p class="lead" data-i18n="prices.lead">Отметьте, кто идёт, — сумма посчитается по прайсу Apollo.</p>
+    </div>
+
+    <div class="calc">
+      <div class="calc-main">
+        <div class="seg" role="radiogroup" aria-label="День недели" data-i18n-attr="aria-label:prices.day">
+          <button type="button" role="radio" data-day="0" aria-checked="true" data-i18n="prices.weekday">Будни</button>
+          <button type="button" role="radio" data-day="1" aria-checked="false" data-i18n="prices.weekend">Выходные</button>
+        </div>
+        <ul class="calc-rows" id="calcRows"></ul>
+        <details class="perks">
+          <summary data-i18n="prices.perks">Льготы и именинники</summary>
+          <ul class="calc-rows" id="perkRows"></ul>
+        </details>
       </div>
-      <p class="welcome-kicker" data-venue="tagline">Семейный развлекательный центр</p>
-      <h1 id="welcomeTitle" class="welcome-title" data-venue="name">Apollo</h1>
-      <p class="welcome-sub">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-        <span data-venue="subtitle">Актау, Сая Парк</span>
-      </p>
-      <button id="startBtn" class="btn btn-primary btn-xl" type="button">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10-6.5z" fill="currentColor"/></svg>
-        <span data-i18n="start">Начать тур</span>
-      </button>
-      <p id="welcomeStatus" class="welcome-status" aria-live="polite"></p>
-      <div class="welcome-contacts">
-        <span data-venue="address"></span>
-        <a data-venue-phone></a>
-        <a data-venue-map target="_blank" rel="noopener" data-i18n="openMap">Открыть в 2ГИС</a>
-        <a data-venue-whatsapp target="_blank" rel="noopener" data-i18n="whatsapp">WhatsApp</a>
-        <a data-venue-instagram target="_blank" rel="noopener" data-i18n="instagram">Instagram</a>
+      <aside class="receipt" aria-live="polite">
+        <p class="receipt-head"><span>APOLLO</span><span id="rDay"></span></p>
+        <ul class="receipt-list" id="rList"></ul>
+        <p class="receipt-total"><span data-i18n="prices.total">Итого</span><b id="rTotal">0 ₸</b></p>
+        <p class="receipt-note" data-price-note></p>
+        <a class="btn btn-wa btn-block" id="rSend" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>
+          <span data-i18n="prices.send">Уточнить в WhatsApp</span>
+        </a>
+      </aside>
+    </div>
+
+    <div class="price-extra">
+      <div class="pcard">
+        <h3 data-game-title>Игровая карта для автоматов</h3>
+        <ul class="ptable" id="gameRows"></ul>
+        <p class="muted small" data-game-note></p>
+      </div>
+      <div class="pcard pcard-vr">
+        <h3 data-vr-title>VR-сеанс</h3>
+        <p class="pbig" data-vr-price>1 600 ₸</p>
+        <p class="muted small" data-vr-note></p>
+        <a class="link-arrow" href="tour/#15-2ndfloor-4" data-i18n="prices.vr3d">Посмотреть VR-зону в 3D →</a>
       </div>
     </div>
-  </section>
-</div>
+  </div>
+</section>
 
-<noscript><p style="padding:24px;color:#fff;background:#0b0820">Для просмотра виртуального тура включите JavaScript.</p></noscript>
+<!-- ============ ДЕНЬ РОЖДЕНИЯ ============ -->
+<section class="section" id="party">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker" data-i18n="party.kicker">День рождения</p>
+      <h2 data-i18n-html="party.title">Праздник, который <em>запомнится</em></h2>
+      <p class="lead" data-i18n="party.lead">Своя VIP-комната для гостей и торта, а потом — весь парк. Имениннику вход бесплатно (±1 день).</p>
+    </div>
 
-<script src="vendor/pannellum/pannellum.js"></script>
-<script src="js/app.js"></script>
+    <div class="vips">
+      <article class="vip">
+        <a class="vip-img" href="tour/#16-vip1small" aria-label="Малая VIP-комната в 3D" data-i18n-attr="aria-label:party.small3d">
+          <img src="img/vip-small.webp" alt="" loading="lazy" width="1000" height="667">
+          <span class="zone-3d">3D</span>
+        </a>
+        <div class="vip-body">
+          <h3 data-i18n="party.small">Малая VIP-комната</h3>
+          <p class="muted" data-i18n="party.small.d">Уютный зал «Маленький принц» для камерного праздника.</p>
+          <a class="link-arrow" href="tour/#16-vip1small" data-i18n="party.look">Осмотреть в 3D →</a>
+        </div>
+      </article>
+      <article class="vip">
+        <a class="vip-img" href="tour/#17-vip2big" aria-label="Большая VIP-комната в 3D" data-i18n-attr="aria-label:party.big3d">
+          <img src="img/vip-big.webp" alt="" loading="lazy" width="1000" height="667">
+          <span class="zone-3d">3D</span>
+        </a>
+        <div class="vip-body">
+          <h3 data-i18n="party.big">Большая VIP-комната</h3>
+          <p class="muted" data-i18n="party.big.d">Просторный «космический» зал с диванами и большим столом.</p>
+          <a class="link-arrow" href="tour/#17-vip2big" data-i18n="party.look">Осмотреть в 3D →</a>
+        </div>
+      </article>
+    </div>
+
+    <form class="book" id="bookForm" novalidate>
+      <div class="book-head">
+        <h3 data-i18n="book.title">Забронировать праздник</h3>
+        <p class="muted" data-i18n="book.lead">Заполните — и отправьте заявку администратору в WhatsApp. Он подскажет свободные даты и стоимость.</p>
+      </div>
+      <div class="book-grid">
+        <label><span data-i18n="book.name">Имя именинника</span><input name="name" autocomplete="off" required></label>
+        <label><span data-i18n="book.age">Сколько исполняется</span><input name="age" type="number" min="1" max="18" inputmode="numeric"></label>
+        <label><span data-i18n="book.date">Дата праздника</span><input name="date" type="date" required></label>
+        <label><span data-i18n="book.guests">Сколько детей-гостей</span><input name="guests" type="number" min="1" max="60" inputmode="numeric"></label>
+        <label class="span2"><span data-i18n="book.room">Комната</span>
+          <select name="room">
+            <option value="any" data-i18n="book.room.any">Подскажите, какая подойдёт</option>
+            <option value="small" data-i18n="party.small">Малая VIP-комната</option>
+            <option value="big" data-i18n="party.big">Большая VIP-комната</option>
+          </select>
+        </label>
+        <label class="span2"><span data-i18n="book.comment">Пожелания (необязательно)</span><textarea name="comment" rows="2"></textarea></label>
+      </div>
+      <p class="form-error" id="bookError" role="alert" hidden data-i18n="book.error">Укажите имя именинника и дату праздника.</p>
+      <button class="btn btn-wa btn-lg" type="submit">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>
+        <span data-i18n="book.send">Отправить в WhatsApp</span>
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- ============ ОТЗЫВЫ ============ -->
+<section class="section section-soft" id="reviews">
+  <div class="wrap">
+    <div class="reviews-head">
+      <div class="sec-head">
+        <p class="kicker" data-i18n="rev.kicker">Отзывы</p>
+        <h2 data-i18n-html="rev.title">Родители <em>советуют</em></h2>
+      </div>
+      <a class="rating" data-2gis-reviews target="_blank" rel="noopener">
+        <b data-rating>4,9</b>
+        <span><span class="stars" aria-hidden="true">★★★★★</span><small data-rating-count>1 120 оценок в 2ГИС</small></span>
+      </a>
+    </div>
+    <div class="reviews" id="reviewList"></div>
+    <a class="link-arrow" data-2gis-reviews target="_blank" rel="noopener" data-i18n="rev.all">Все отзывы в 2ГИС →</a>
+  </div>
+</section>
+
+<!-- ============ КАК НАЙТИ ============ -->
+<section class="section" id="find">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker" data-i18n="find.kicker">Как нас найти</p>
+      <h2 data-i18n-html="find.title">Три шага до <em>Apollo</em></h2>
+    </div>
+    <ol class="steps">
+      <li class="step">
+        <a href="tour/#01-mall-entrance"><img src="img/way-mall.webp" alt="" loading="lazy" width="1000" height="750"><span class="zone-3d">3D</span></a>
+        <b><span class="step-n">1</span><span data-i18n="find.s1">Заходите в ТРЦ Saya Park</span></b>
+        <small class="muted" data-i18n="find.s1.d">10-й микрорайон, 3</small>
+      </li>
+      <li class="step">
+        <a href="tour/#02-apollo-entrance"><img src="img/way-apollo.webp" alt="" loading="lazy" width="1000" height="750"><span class="zone-3d">3D</span></a>
+        <b><span class="step-n">2</span><span data-i18n="find.s2">Поднимайтесь на 2 этаж</span></b>
+        <small class="muted" data-i18n="find.s2.d">Ищите большой космический вход APOLLO</small>
+      </li>
+      <li class="step">
+        <a href="tour/#03-entrance"><img src="img/way-reception.webp" alt="" loading="lazy" width="1000" height="750"><span class="zone-3d">3D</span></a>
+        <b><span class="step-n">3</span><span data-i18n="find.s3">Касса — и вперёд играть!</span></b>
+        <small class="muted" data-i18n="find.s3.d">Браслет на руку — и весь парк ваш</small>
+      </li>
+    </ol>
+
+    <div class="contact">
+      <ul class="contact-list">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg><div><small data-i18n="c.address">Адрес</small><b data-address></b></div></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clock"/></svg><div><small data-i18n="c.hours">Режим работы</small><b data-hours></b></div></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg><div><small data-i18n="c.phone">Телефон и WhatsApp</small><b><a data-phone></a></b></div></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ig"/></svg><div><small>Instagram</small><b><a data-ig target="_blank" rel="noopener"></a></b></div></li>
+      </ul>
+      <div class="contact-btns">
+        <a class="btn btn-primary" data-2gis target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-route"/></svg><span data-i18n="c.route">Маршрут в 2ГИС</span>
+        </a>
+        <a class="btn btn-wa" data-wa data-wa-text="wa.hello" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="c.wa">Написать в WhatsApp</span>
+        </a>
+        <a class="btn btn-ghost" data-call>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg><span data-i18n="c.call">Позвонить</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-in">
+    <a class="logo" href="#top">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="9" fill="#f5f3ff"/><ellipse cx="20" cy="20" rx="18" ry="6" fill="none" stroke="#ff8a3d" stroke-width="3" transform="rotate(-25 20 20)"/></svg>
+      <span>APOLLO</span>
+    </a>
+    <p class="muted"><span data-address></span><br><span data-hours></span></p>
+    <p class="footer-links">
+      <a href="tour/" data-i18n="nav.tour">3D-тур</a>
+      <a data-ig target="_blank" rel="noopener">Instagram</a>
+      <a data-2gis target="_blank" rel="noopener">2ГИС</a>
+    </p>
+    <p class="muted small">© <span id="year"></span> Apollo, Актау</p>
+  </div>
+</footer>
+
+<!-- Нижняя панель на телефоне -->
+<nav class="dock" aria-label="Быстрые действия">
+  <a data-call><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg><span data-i18n="dock.call">Звонок</span></a>
+  <a class="dock-main" href="tour/"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-360"/></svg><span data-i18n="nav.tour">3D-тур</span></a>
+  <a data-wa data-wa-text="wa.hello" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span></a>
+</nav>
+
+<!-- Иконки -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 8.5c0 3.5 2.5 6.5 6.5 6.5l1-1.5-2-1-1 1c-1.3-.5-2.5-1.7-3-3l1-1-1-2z" fill="currentColor"/></symbol>
+  <symbol id="i-360" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="4.5"/><path d="M12 3c2.5 2.5 2.5 15.5 0 18M12 3c-2.5 2.5-2.5 15.5 0 18"/></g></symbol>
+  <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v8a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2zM14 6v12" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-dasharray="0"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5v.01"/></g></symbol>
+  <symbol id="i-route" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h8a3.5 3.5 0 0 0 0-7H8a3.5 3.5 0 0 1 0-7h8"/></g></symbol>
+</svg>
+
+<script src="js/site.js"></script>
 </body>
 </html>

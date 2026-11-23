@@ -17,7 +17,7 @@
   --neon: #22d3ee;
   --danger: #f87171;
 
-  --font-display: "Unbounded", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Rubik", "Segoe UI", system-ui, sans-serif;
   --font-body: "Nunito", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
 
   --radius-sm: 10px;
@@ -133,6 +133,12 @@ h1, h2, h3 { margin: 0; }
 }
 .topbar-actions { display: flex; gap: 8px; flex: none; }
 #fsBtn .i-exit { display: none; }
+a.brand { color: inherit; border-radius: 14px; }
+a.brand:hover .brand-mark { filter: brightness(1.15); }
+.embed-only { display: none; }
+.is-embed .embed-only { display: inline-grid; }
+.is-embed .brand, .is-embed #infoBtn, .is-embed #fsBtn, .is-embed #langBtn, .is-embed .welcome { display: none !important; }
+.is-embed .topbar { background: none; justify-content: flex-end; }
 .is-fullscreen #fsBtn .i-enter { display: none; }
 .is-fullscreen #fsBtn .i-exit { display: block; }
 
@@ -281,7 +287,7 @@ h1, h2, h3 { margin: 0; }
   text-transform: uppercase; letter-spacing: .16em; color: var(--muted);
 }
 .welcome-title {
-  font-family: var(--font-display); font-weight: 700;
+  font-family: var(--font-display); font-weight: 800;
   font-size: clamp(52px, 15vw, 112px); line-height: 1; letter-spacing: .02em;
   background: linear-gradient(180deg, #fff 30%, #c4b5fd);
   -webkit-background-clip: text; background-clip: text; color: transparent;

@@ -8,6 +8,8 @@
 
   var params = new URLSearchParams(location.search);
   var EDIT = params.has('edit');
+  var EMBED = params.has('embed') && !EDIT; // встраивание в главную страницу (iframe)
+  if (EMBED) document.documentElement.classList.add('is-embed');
 
   var state = {
     cfg: null,
@@ -226,6 +228,7 @@
         autoLoad: true,
         showControls: false,
         compass: false,
+        mouseZoom: !EMBED, // во встроенном туре колесо мыши прокручивает страницу
         backgroundColor: [0.043, 0.031, 0.125],
         autoRotate: EDIT ? false : (set.autoRotate || false),
         autoRotateInactivityDelay: set.autoRotateInactivityDelay != null ? set.autoRotateInactivityDelay : -1,
@@ -271,6 +274,7 @@
       c.setAttribute('aria-current', c.dataset.id === id ? 'true' : 'false');
     });
     try { history.replaceState(null, '', location.pathname + location.search + '#' + encodeURIComponent(id)); } catch (e) { /* file:// */ }
+    $('#expandBtn').href = './#' + encodeURIComponent(id);
     if (state.editor) state.editor.onScene(id);
   }
 
@@ -460,7 +464,7 @@
     $('#welcome').classList.add('is-hidden');
     $('#welcome').setAttribute('aria-hidden', 'true');
     $('#pano').focus({ preventScroll: true });
-    if (!EDIT) setTimeout(function () { toast(t('dragHint'), { duration: 3500 }); }, 700);
+    if (!EDIT && !EMBED) setTimeout(function () { toast(t('dragHint'), { duration: 3500 }); }, 700);
   }
 
   function bindUI() {
@@ -554,6 +558,7 @@
       $('#welcomeStatus').textContent = t('loading');
       buildViewer(first);
       if (EDIT) { startTour(); loadEditor(); }
+      if (EMBED) startTour();
     }).catch(function (err) {
       console.error(err);
       fatal('Ошибка загрузки tour-config.json: ' + err.message +

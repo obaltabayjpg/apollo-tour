@@ -23,8 +23,8 @@ pillow_heif.register_heif_opener()
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "panoramas"
-OUT_PANO = ROOT / "site" / "images" / "pano"
-OUT_THUMB = ROOT / "site" / "images" / "thumbs"
+OUT_PANO = ROOT / "site" / "tour" / "images" / "pano"
+OUT_THUMB = ROOT / "site" / "tour" / "images" / "thumbs"
 MANIFEST = Path(__file__).resolve().parent / "images.json"
 
 SIZES = {"8k": (8192, 84), "4k": (4096, 80)}  # ширина, качество JPEG
